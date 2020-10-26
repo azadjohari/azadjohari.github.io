@@ -23,8 +23,8 @@ function BookNow(guestName, guestEmail, guestPax) {
         });
 }
 
-console.log(typeof document.getElementById("bookNow"));
-document.getElementById("bookNow").addEventListener("click", function () {
+let el = document.getElementById("bookNow");
+el.addEventListener("click", function () {
     let name = document.getElementById("guestName").value;
     let email = document.getElementById("guestEmail").value;
     let pax = document.getElementById("guestPax").value;
