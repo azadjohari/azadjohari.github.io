@@ -56,7 +56,7 @@ function DeleteBooking(id) {
                 for (let i = 1; i < table.rows.length; i++) {
                     table.deleteRow(i);
                 }
-                GetBookings();
+                //GetBookings();
             });
     } else {
         alert("Delete cancelled");
