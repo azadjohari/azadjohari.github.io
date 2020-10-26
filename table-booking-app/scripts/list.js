@@ -57,6 +57,4 @@ function DeleteBooking(id) {
     } else {
         alert("Delete cancelled");
     }
-
-
 }
