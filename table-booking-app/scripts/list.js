@@ -55,6 +55,7 @@ function DeleteBooking(id) {
                 let table = document.getElementById("booking-list");
                 for (let i = 1; i < table.rows.length; i++) {
                     table.deleteRow(i);
+                    console.log("table length " + table.rows.length);
                 }
                 //GetBookings();
             });
