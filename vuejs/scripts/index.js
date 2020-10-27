@@ -1,9 +1,6 @@
-const HelloVueApp = {
-    data() {
-        return {
-            message: 'Hello Vue!!'
-        }
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello Vue!'
     }
-}
-
-Vue.createApp(HelloVueApp).mount('#hello-vue');
+})
