@@ -6,4 +6,4 @@ const HelloVueApp = {
     }
 }
 
-Vue.createApp(HelloVueApp).mount('#hello-vue')
+Vue.createApp(HelloVueApp).mount('#hello-vue');
