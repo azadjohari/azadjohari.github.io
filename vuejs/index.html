@@ -12,6 +12,11 @@
     <div id="app">
         {{message}}
     </div>
+    <div id="app-2">
+        <span v-bind:title="message">
+            Hover your mouse here for a few seconds to see the Vue app generated title!
+        </span>
+    </div>
 
     <!-- Vue app script must be added before the closing tag of <body>-->
     <script src="./scripts/index.js"></script>
