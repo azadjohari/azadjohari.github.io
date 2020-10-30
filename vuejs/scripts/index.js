@@ -20,3 +20,15 @@ var app3 = new Vue({
         seen: true
     }
 });
+
+var app4 = new Vue({
+    el: "#app-4",
+    data: {
+        todos: [
+            { text: "Learn HTML - Done" },
+            { text: "Learn CSS - Done" },
+            { text: "Learn JS - Done" },
+            { text: "Learn Vue - In Progress" }
+        ]
+    }
+})
