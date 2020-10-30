@@ -12,14 +12,17 @@
     <div id="app">
         {{message}}
     </div>
+
     <div id="app-2">
         <span v-bind:title="message">
             Hover your mouse here for a few seconds to see the Vue app generated title!
         </span>
         <a v-bind:href="linkURL" target="_blank" rel="noopener noreferrer">{{linkText}}</a>
     </div>
+
     <div id="app-3">
         <span v-if="seen">Now you can see me!</span>
+        <span v-else>Seen value is false!</span>
     </div>
 
     <!-- Vue app script must be added before the closing tag of <body>-->
