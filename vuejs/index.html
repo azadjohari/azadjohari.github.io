@@ -18,6 +18,9 @@
         </span>
         <a v-bind:href="linkURL" target="_blank" rel="noopener noreferrer">{{linkText}}</a>
     </div>
+    <div id="app-3">
+        <span v-if="seen">Now you can see me!</span>
+    </div>
 
     <!-- Vue app script must be added before the closing tag of <body>-->
     <script src="./scripts/index.js"></script>
