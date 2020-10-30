@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue - Components</title>
+    <script src="https://unpkg.com/vue"></script>
 </head>
 
 <body>
     <div id="app-7">
         <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
-
         </todo-item>
     </div>
+
+    <script src="./scripts/components.js"></script>
+
 </body>
 
 </html>
