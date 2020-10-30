@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue - Hello Vue!</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <hr />
+    <div id="app-2">
+        <span v-bind:title="message">
+            Hover your mouse over me for a few seconds
+            to see my dynamically bound title!
+        </span>
+        <a v-bind:href="linkUrl" target="_blank" rel="noopener noreferrer">{{linkText}}</a>
+    </div>
+    <hr />
+    <div id="app-3">
+        <span v-if="seen">Now you see me</span>
+    </div>
+    <hr />
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
+    <hr />
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+    <hr />
+    <div id="app-6">
+        <p>{{ message }}</p>
+        <input v-model="message">
+    </div>
+
+    <script src="./scripts/index.js"></script>
+</body>
+
+</html>
