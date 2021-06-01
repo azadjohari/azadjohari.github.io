@@ -2216,7 +2216,14 @@ We&#039;re coming in May!
 		<script>
 			const dfMessenger = document.querySelector('df-messenger');
 			dfMessenger.addEventListener('df-button-clicked', function (event) {
-				console.log("azad: " + event)
+				dfMessenger.languageCode=event.detail.element.event.parameters.lang
+			});
+			dfMessenger.addEventListener('df-chip-clicked', function (event) {
+				if(event.detail.query.toLowerCase().includes("bahasa")) {
+					dfMessenger.languageCode="ms"
+				} else {
+					dfMessenger.languageCode="en"
+				}
 			});
 		</script>
 
