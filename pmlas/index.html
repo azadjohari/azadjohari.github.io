@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position-based Markup Language Annotation System (PMLAS) - Azad Johari</title>
+</head>
+
+<body>
+
+
+    <h1>Phase 2: Position-based Markup Language Annotation System (PMLAS)</h1>
+    <h2>Paper Title: Annotating SSML in HTML Attributes</h2>
+    <h3>Presentation Details: Date >> 08-Aug-2021, Course >> CS727 MSc Web Technology, UiTM </h3>
+    <h4>&lt;article&gt;</h4>
+    <article data-ssml="speak" data-ssml-break-0="set: loc(13), time(200ms);set: loc(15), time(200ms);"
+        data-ssml-sub-1="set: loc(17), alias(43500 ringgit); set: loc(9), alias(British International School of Kuala Lumpur); set: loc(44-46), alias(perhilitan);"
+        data-ssml-prosody-1="set: loc(27-28), rate(110%), volume(+10dB);"
+        data-ssml-say-as-1="set: loc(40-41), interpret-as(date), format(dm);">
+        A student-led initiative created last year at the BSKL by Year 7 student Sasha Philip raised RM43,500 for
+        conservation groups dedicated to saving the critically endangered Malayan tiger. The funds will be distributed
+        at a virtual school assembly on 15 June together with Jabatan Perhilitan Semenanjung Malaysia.
+    </article>
+    <button id="processArticleFmlAlert">Transcode Article</button>
+    <button id="processArticleFmlClear">Clear</button><br>
+    <textarea id="articleResult" rows="10" cols="50">
+</textarea>
+
+    <h4>&lt;aside&gt;</h4>
+    <aside data-ssml="speak" data-ssml-break-0="set: loc(29), time(300ms);"
+        data-ssml-prosody-1="set: loc(1), rate(70%), volume(+10dB); set: loc(2-8), rate(110%), volume(+50dB);"
+        data-ssml-sub-1="set: loc(10), alias(World Wide Fund);"
+        data-ssml-say-as-1="set: loc(39), interpret-as(date), format(dmy);">
+        Disclaimer: This is a SSML for aside element. The WWF for Nature is an international organization working on
+        issues regarding the conservation, research and restoration of the environment, formerly named the World
+        Wildlife Fund. It was founded on 29-04-1961.
+    </aside>
+
+    <button id="processAsideFmlAlert">Transcode Aside</button>
+    <button id="processAsideFmlClear">Clear</button><br>
+    <textarea id="asideResult" rows="10" cols="50">
+</textarea>
+    <br>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="diff.js"></script>
+    <script src="pmlas.js"></script>
+</body>
+
+</html>
