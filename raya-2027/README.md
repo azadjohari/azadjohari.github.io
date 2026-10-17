@@ -43,4 +43,4 @@ These directives depend on crawler support. They do not restrict access, prevent
 
 ## Meeting calendar download
 
-The next family meeting is Saturday, 24 October 2026 at 09:00 Malaysia time (01:00 UTC). The meeting area links to `family-meeting-2026-10-24.ics`, which includes the Google Meet URL. No end time or duration is specified because only the start time is confirmed. When changing the meeting, update both languages in `app.js`, the HTML time and fallback text, the calendar file and link, then refresh asset URLs.
+The next family meeting is Saturday, 24 October 2026 from 09:00 to 11:00 Malaysia time (01:00–03:00 UTC). The meeting area links to `family-meeting-2026-10-24.ics`, which includes the Google Meet URL. The calendar event has a two-hour duration. When changing the meeting, update both languages in `app.js`, the HTML time and fallback text, the calendar file and link, then refresh asset URLs.

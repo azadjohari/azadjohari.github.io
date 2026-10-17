@@ -4,7 +4,7 @@
     ms: {
       meetingEyebrow: 'JOM BERBINCANG', meetingTitle: 'Mesyuarat keluarga',
       addToCalendar: 'Tambah ke kalendar (.ics)',
-      nextMeeting: 'Mesyuarat seterusnya', meetingDate: 'Sabtu, 24 Oktober 2026 · 9:00 pagi (waktu Malaysia)',
+      nextMeeting: 'Mesyuarat seterusnya', meetingDate: 'Sabtu, 24 Oktober 2026 · 9:00–11:00 pagi (waktu Malaysia)',
       meetingDescription: 'Bincang rancangan Aidilfitri kita bersama di Google Meet.', joinMeeting: 'Sertai Google Meet',
       meetingNewTab: 'Dibuka dalam tab baharu.', countdownTitle: 'Menghitung hari ke Ipoh', datesTbc: 'KEDUA-DUA PILIHAN: TBC',
       optionOne: 'PILIHAN 1', optionTwo: 'PILIHAN 2', countdownUnits: ['hari', 'jam', 'minit', 'saat'],
@@ -47,7 +47,7 @@
     en: {
       meetingEyebrow: 'LET’S PLAN TOGETHER', meetingTitle: 'Family meeting',
       addToCalendar: 'Add to calendar (.ics)',
-      nextMeeting: 'Next meeting', meetingDate: 'Saturday, 24 October 2026 · 9:00 AM (Malaysia time)',
+      nextMeeting: 'Next meeting', meetingDate: 'Saturday, 24 October 2026 · 9:00–11:00 AM (Malaysia time)',
       meetingDescription: 'Discuss our Aidilfitri plans together on Google Meet.', joinMeeting: 'Join Google Meet',
       meetingNewTab: 'Opens in a new tab.', countdownTitle: 'Counting down to Ipoh', datesTbc: 'BOTH OPTIONS: TBC',
       optionOne: 'OPTION 1', optionTwo: 'OPTION 2', countdownUnits: ['days', 'hours', 'minutes', 'seconds'],
