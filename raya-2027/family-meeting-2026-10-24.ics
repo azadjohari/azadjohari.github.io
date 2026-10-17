@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Keluarga Johari//Aidilfitri 2027//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:family-meeting-20261024@azadjohari.github.io
+DTSTAMP:20261017T113417Z
+DTSTART:20261024T010000Z
+SUMMARY:Mesyuarat Keluarga Johari / Family meeting
+DESCRIPTION:Discuss our Aidilfitri 2027 plans.\n
+ Google Meet: https://meet.google.com/uon-ugfk-wft
+LOCATION:Google Meet
+URL:https://meet.google.com/uon-ugfk-wft
+END:VEVENT
+END:VCALENDAR
