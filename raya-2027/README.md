@@ -34,3 +34,9 @@ The family Google Meet link and both proposed travel countdowns appear above the
 ## Regression checks
 
 Run `node raya-2027/tests/render.test.cjs` to check translation fallbacks, both languages and the accommodation entry. Proposed stays are listed in the accommodation table in `index.html`; bilingual descriptions are in `app.js`.
+
+## Search visibility
+
+The page includes a robots meta directive requesting `noindex`, `nofollow`, `noarchive`, `nosnippet` and `noimageindex`. Crawlers must be able to fetch the page to discover these directives, so do not block `/raya-2027/` in `robots.txt`.
+
+These directives depend on crawler support. They do not restrict access, prevent browser caching, or remove copies already stored by third parties. The public GitHub repository also remains accessible. GitHub Pages does not provide per-page custom HTTP cache headers through this HTML file. Existing search results may require a recrawl or a removal request to the relevant search engine.
