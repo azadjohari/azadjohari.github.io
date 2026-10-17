@@ -3,13 +3,13 @@
   const translations = {
     ms: {
       navOverview: 'Ringkasan', navItinerary: 'Atur cara', navEssentials: 'Persediaan',
-      heroEyebrow: 'SATU KELUARGA, SATU PERJALANAN', heroTitle: ['Balik bersama.', 'Raya bermakna.'],
-      heroDescription: 'Jauh dekat, kita tetap bersama. Semua maklumat perjalanan Raya 2027 keluarga kita, dalam satu tempat.',
+      heroEyebrow: 'SATU KELUARGA, SATU PERJALANAN', heroTitle: ['Balik bersama.', 'Aidilfitri bermakna.'],
+      heroDescription: 'Jauh dekat, kita tetap bersama. Semua maklumat perjalanan Aidilfitri 2027 keluarga kita, dalam satu tempat.',
       viewTrip: 'Lihat perjalanan', heroFootnote: 'Untuk semua ahli keluarga, dari yang kecil hingga yang besar.',
       artNote: 'Kenangan paling indah, kita cipta bersama.', destination: 'DESTINASI', travelDates: 'TARIKH PERJALANAN',
       tripStatus: 'STATUS PERJALANAN', planning: 'Dalam perancangan', overviewEyebrow: '01 / PERJALANAN KITA',
       overviewTitle: 'Semua yang perlu tahu.', overviewDescription: ['Semak di sini sebelum bertolak.', 'Maklumat disahkan akan dikemas kini.'],
-      notice: 'Perjalanan ini masih dalam perancangan. Destinasi, tarikh dan tempahan belum disahkan.', draft: 'DRAF',
+      notice: 'Perjalanan ini masih dalam perancangan. Destinasi kita ialah Ipoh, Perak. Pilihan tarikh dan tempahan masih belum disahkan.', draft: 'DRAF',
       destinationTitle: 'Ke mana kita?', transportTitle: 'Perjalanan & pengangkutan', stayTitle: 'Tempat menginap',
       itineraryEyebrow: '02 / MASA BERSAMA', itineraryTitle: 'Ruang untuk kenangan.',
       itineraryDescription: ['Rancangan perjalanan keluarga.', 'Masa untuk berkumpul, berehat dan beraya.'],
@@ -33,18 +33,18 @@
     },
     en: {
       navOverview: 'Overview', navItinerary: 'Itinerary', navEssentials: 'Get ready',
-      heroEyebrow: 'ONE FAMILY, ONE JOURNEY', heroTitle: ['Together again.', 'A Raya to remember.'],
-      heroDescription: 'Near or far, we come together. Your home for all our family’s Raya 2027 travel information.',
+      heroEyebrow: 'ONE FAMILY, ONE JOURNEY', heroTitle: ['Together again.', 'An Aidilfitri to remember.'],
+      heroDescription: 'Near or far, we come together. Your home for all our family’s Aidilfitri 2027 travel information.',
       viewTrip: 'Explore the trip', heroFootnote: 'For every member of the family, little ones and grown-ups alike.',
       artNote: 'The best memories are the ones we make together.', destination: 'DESTINATION', travelDates: 'TRAVEL DATES',
       tripStatus: 'TRIP STATUS', planning: 'Planning in progress', overviewEyebrow: '01 / OUR JOURNEY',
       overviewTitle: 'Everything you need to know.', overviewDescription: ['Check here before you set off.', 'Confirmed details will be added as we plan.'],
-      notice: 'Our trip is still being planned. The destination, dates and bookings are not yet confirmed.', draft: 'DRAFT',
+      notice: 'Our trip is still being planned. Our destination is Ipoh, Perak. The date options and bookings are not yet confirmed.', draft: 'DRAFT',
       destinationTitle: 'Where are we going?', transportTitle: 'Travel & transport', stayTitle: 'Where we’re staying',
       itineraryEyebrow: '02 / TIME TOGETHER', itineraryTitle: 'Make room for memories.',
       itineraryDescription: ['Our family travel plans.', 'Time to gather, unwind and celebrate.'],
       emptyTitle: 'Our itinerary is taking shape', emptyDescription: 'The itinerary will appear here once dates and activities are confirmed. Check back for the latest updates.',
-      essentialsEyebrow: '03 / BEFORE YOU GO', essentialsTitle: ['A little prep.', 'A happier Raya.'],
+      essentialsEyebrow: '03 / BEFORE YOU GO', essentialsTitle: ['A little prep.', 'A happier Aidilfitri.'],
       essentialsDescription: 'A little preparation makes for a smoother journey. Tick off your essentials as you get ready.',
       yourProgress: 'Your preparations', localNote: 'This checklist is saved on this device only.',
       storageUnavailable: 'Device storage is unavailable. Your checklist lasts only while this page is open.',
@@ -95,7 +95,7 @@
     });
     byId('language').textContent = language === 'ms' ? 'EN ↗' : 'BM ↗';
     byId('language').setAttribute('aria-label', language === 'ms' ? 'Switch to English' : 'Tukar ke Bahasa Melayu');
-    document.title = language === 'ms' ? 'Raya 2027 · Keluarga Johari' : 'Raya 2027 · The Johari Family';
+    document.title = 'Aidilfitri 2027 · Keluarga Johari';
     for (const [id, field] of Object.entries({ 'summary-destination': 'destination', 'summary-dates': 'dates', 'destination-value': 'destination', 'transport-value': 'transport', 'stay-value': 'stay', 'destination-note': 'destinationNote', 'transport-note': 'transportNote', 'stay-note': 'stayNote' })) {
       byId(id).textContent = value(trip[field]);
     }

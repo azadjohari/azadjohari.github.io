@@ -1,4 +1,4 @@
-# Raya 2027 family portal
+# Aidilfitri 2027 family portal
 
 Static, bilingual (Bahasa Melayu / English) family trip portal for:
 https://azadjohari.github.io/raya-2027/
