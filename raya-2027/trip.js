@@ -7,6 +7,11 @@ window.RAYA_TRIP = {
     ms: 'Tarikh akan disahkan (TBC)\nPilihan 1: 10–12 Mac 2027, Rabu–Jumaat.\nPilihan 2: 11–13 Mac 2027, Khamis–Sabtu.',
     en: 'Dates to be confirmed (TBC)\nOption 1: 10–12 March 2027, Wednesday–Friday.\nOption 2: 11–13 March 2027, Thursday–Saturday.'
   },
+  // Countdown targets are midnight in Malaysia, not confirmed departure times.
+  departureOptions: [
+    { start: '2027-03-10T00:00:00+08:00', dates: { ms: '10–12 Mac 2027 · Rabu–Jumaat', en: '10–12 March 2027 · Wednesday–Friday' } },
+    { start: '2027-03-11T00:00:00+08:00', dates: { ms: '11–13 Mac 2027 · Khamis–Sabtu', en: '11–13 March 2027 · Thursday–Saturday' } }
+  ],
   transport: null,
   stay: null,
   destinationNote: { ms: 'Kita akan ke Ipoh, Perak. Tempat berkumpul akan dikongsi setelah disahkan.', en: 'We are heading to Ipoh, Perak. The meeting point will be shared once confirmed.' },
