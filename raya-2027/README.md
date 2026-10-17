@@ -19,6 +19,8 @@ The packing checklist and language preference use browser localStorage. Checklis
 
 From the repository root, run `python -m http.server 8000` and open `http://localhost:8000/raya-2027/`.
 
+Before publishing changes to CSS, JavaScript or trip details, run `python raya-2027/update-assets.py` from the repository root. This updates content-based asset URLs so mobile browsers fetch matching files. Verify with `python raya-2027/update-assets.py --check`.
+
 Merge the portal into the branch used by the repository's GitHub Pages configuration (currently the repository default branch is `master`). If Pages publishes from the repository root, the directory is served at `/raya-2027/`. Confirm the Pages source in repository Settings → Pages before publication.
 
 ## Checks
@@ -28,3 +30,7 @@ Run `node --check raya-2027/app.js` and `node --check raya-2027/trip.js`. Manual
 ## Meeting and countdowns
 
 The family Google Meet link and both proposed travel countdowns appear above the hero. Update `departureOptions` in `trip.js` if the proposed dates change, alongside the displayed `dates` text. Countdown timestamps include Malaysia’s UTC+08:00 offset and target midnight on each option’s first day, not a confirmed departure time. Timers update every second and show a date-reached message after their target. Both options remain TBC.
+
+## Regression checks
+
+Run `node raya-2027/tests/render.test.cjs` to check translation fallbacks, both languages and the accommodation entry. Proposed stays are listed in the accommodation table in `index.html`; bilingual descriptions are in `app.js`.
