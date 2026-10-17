@@ -2,6 +2,12 @@
 (() => {
   const translations = {
     ms: {
+      meetingEyebrow: 'JOM BERBINCANG', meetingTitle: 'Mesyuarat keluarga',
+      meetingDescription: 'Bincang rancangan Aidilfitri kita bersama di Google Meet.', joinMeeting: 'Sertai Google Meet',
+      meetingNewTab: 'Dibuka dalam tab baharu.', countdownTitle: 'Menghitung hari ke Ipoh', datesTbc: 'KEDUA-DUA PILIHAN: TBC',
+      optionOne: 'PILIHAN 1', optionTwo: 'PILIHAN 2', countdownUnits: ['hari', 'jam', 'minit', 'saat'],
+      countdownReached: 'Tarikh mula pilihan ini telah tiba.',
+      countdownNote: 'Kiraan ke 00:00 waktu Malaysia pada hari pertama setiap pilihan. Tarikh dan waktu bertolak masih akan disahkan.',
       navOverview: 'Ringkasan', navItinerary: 'Atur cara', navEssentials: 'Persediaan',
       heroEyebrow: 'SATU KELUARGA, SATU PERJALANAN', heroTitle: ['Balik bersama.', 'Aidilfitri bermakna.'],
       heroDescription: 'Jauh dekat, kita tetap bersama. Semua maklumat perjalanan Aidilfitri 2027 keluarga kita, dalam satu tempat.',
@@ -32,6 +38,12 @@
       ]
     },
     en: {
+      meetingEyebrow: 'LET’S PLAN TOGETHER', meetingTitle: 'Family meeting',
+      meetingDescription: 'Discuss our Aidilfitri plans together on Google Meet.', joinMeeting: 'Join Google Meet',
+      meetingNewTab: 'Opens in a new tab.', countdownTitle: 'Counting down to Ipoh', datesTbc: 'BOTH OPTIONS: TBC',
+      optionOne: 'OPTION 1', optionTwo: 'OPTION 2', countdownUnits: ['days', 'hours', 'minutes', 'seconds'],
+      countdownReached: 'This option’s start date has arrived.',
+      countdownNote: 'Counting down to 00:00 Malaysia time on the first day of each option. Travel dates and departure times are still to be confirmed.',
       navOverview: 'Overview', navItinerary: 'Itinerary', navEssentials: 'Get ready',
       heroEyebrow: 'ONE FAMILY, ONE JOURNEY', heroTitle: ['Together again.', 'An Aidilfitri to remember.'],
       heroDescription: 'Near or far, we come together. Your home for all our family’s Aidilfitri 2027 travel information.',
@@ -81,6 +93,37 @@
     byId('packing-progress').value = checked.size;
     byId('packing-progress').setAttribute('aria-label', translations[language].yourProgress);
     byId('storage-note').textContent = translations[language][storageAvailable ? 'localNote' : 'storageUnavailable'];
+  }
+  function updateCountdowns() {
+    const now = Date.now();
+    const t = translations[language];
+    (trip.departureOptions || []).forEach((option, index) => {
+      const target = Date.parse(option.start);
+      const container = byId(`countdown-values-${index + 1}`);
+      const heading = byId(`countdown-date-${index + 1}`);
+      if (!container || !heading) return;
+      heading.textContent = value(option.dates);
+      container.replaceChildren();
+      if (!Number.isFinite(target)) {
+        container.textContent = t.pending;
+        return;
+      }
+      if (target <= now) {
+        container.textContent = t.countdownReached;
+        return;
+      }
+      const seconds = Math.floor((target - now) / 1000);
+      const parts = [Math.floor(seconds / 86400), Math.floor(seconds / 3600) % 24, Math.floor(seconds / 60) % 60, seconds % 60];
+      parts.forEach((part, unit) => {
+        const cell = document.createElement('span');
+        const number = document.createElement('strong');
+        number.textContent = String(part).padStart(2, '0');
+        const label = document.createElement('small');
+        label.textContent = t.countdownUnits[unit];
+        cell.append(number, label);
+        container.append(cell);
+      });
+    });
   }
   function render() {
     const t = translations[language];
@@ -161,6 +204,7 @@
     byId('share-status').textContent = '';
     byId('share-fallback').hidden = true;
     updateProgress();
+    updateCountdowns();
   }
   byId('language').addEventListener('click', () => {
     language = language === 'ms' ? 'en' : 'ms';
@@ -185,4 +229,5 @@
   });
   byId('print').addEventListener('click', () => window.print());
   render();
+  window.setInterval(updateCountdowns, 1000);
 })();

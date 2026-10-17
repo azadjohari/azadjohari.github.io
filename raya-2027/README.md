@@ -24,3 +24,7 @@ Merge the portal into the branch used by the repository's GitHub Pages configura
 ## Checks
 
 Run `node --check raya-2027/app.js` and `node --check raya-2027/trip.js`. Manually verify both languages, checklist persistence after reload, link copying, mobile layout and print preview.
+
+## Meeting and countdowns
+
+The family Google Meet link and both proposed travel countdowns appear above the hero. Update `departureOptions` in `trip.js` if the proposed dates change, alongside the displayed `dates` text. Countdown timestamps include Malaysia’s UTC+08:00 offset and target midnight on each option’s first day, not a confirmed departure time. Timers update every second and show a date-reached message after their target. Both options remain TBC.
