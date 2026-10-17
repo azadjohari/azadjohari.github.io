@@ -47,7 +47,8 @@ function render(language, source = script) {
 for (const language of ['ms', 'en']) {
   const { labels, ids } = render(language);
   assert.equal(ids['summary-destination'].textContent, 'Ipoh, Perak');
-  assert.match(labels.find(node => node.dataset.i18n === 'meetingDate').textContent, /21 (October|Oktober) 2026/);
+  assert.match(labels.find(node => node.dataset.i18n === 'meetingDate').textContent, /24 (October|Oktober) 2026/);
+  assert.match(labels.find(node => node.dataset.i18n === 'meetingDate').textContent, /9:00–11:00/);
   assert.match(labels.find(node => node.dataset.i18n === 'villaDescription').textContent, /private pool|kolam renang peribadi/);
 }
 const missingEnglish = script.replace("meetingTitle: 'Family meeting'", "unusedMeetingTitle: 'Family meeting'");
@@ -55,6 +56,16 @@ const fallback = render('en', missingEnglish);
 assert.equal(fallback.labels.find(node => node.dataset.i18n === 'meetingTitle').textContent, 'Mesyuarat keluarga');
 assert.match(html, /https:\/\/www.booking.com\/Share-tVBSp9/);
 assert.match(html, /<th scope="row">LYL 108 Private Pool Villa<\/th>/);
+const calendarLink = html.match(/href="\.\/([^"]+\.ics)"/);
+assert.ok(calendarLink, 'The meeting must offer a calendar download');
+const calendar = fs.readFileSync(path.join(root, calendarLink[1]), 'utf8');
+assert.match(calendar, /^DTSTART:20261024T010000Z\r?$/m, '9 AM Malaysia time must be 01:00 UTC');
+assert.match(calendar, /^URL:https:\/\/meet.google.com\/uon-ugfk-wft\r?$/m);
+assert.match(html, /datetime="2026-10-24T09:00:00\+08:00"/);
+assert.equal(new Date('2026-10-24T09:00:00+08:00').toISOString(), '2026-10-24T01:00:00.000Z');
+assert.match(calendar, /^DTEND:20261024T030000Z\r?$/m, '11 AM Malaysia time must be 03:00 UTC');
+assert.equal(Date.parse('2026-10-24T03:00:00Z') - Date.parse('2026-10-24T01:00:00Z'), 2 * 60 * 60 * 1000);
+assert.ok(!calendar.replaceAll('\r\n', '').includes('\n'), 'Calendar lines must use CRLF');
 for (const file of ['styles.css', 'trip.js', 'app.js']) {
   const hash = crypto.createHash('sha256').update(fs.readFileSync(path.join(root, file))).digest('hex').slice(0, 16);
   assert.ok(html.includes(`./${file}?v=${hash}"`), `Refresh the cache version for ${file}`);
