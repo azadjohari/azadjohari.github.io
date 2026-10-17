@@ -1,0 +1,188 @@
+'use strict';
+(() => {
+  const translations = {
+    ms: {
+      navOverview: 'Ringkasan', navItinerary: 'Atur cara', navEssentials: 'Persediaan',
+      heroEyebrow: 'SATU KELUARGA, SATU PERJALANAN', heroTitle: ['Balik bersama.', 'Raya bermakna.'],
+      heroDescription: 'Jauh dekat, kita tetap bersama. Semua maklumat perjalanan Raya 2027 keluarga kita, dalam satu tempat.',
+      viewTrip: 'Lihat perjalanan', heroFootnote: 'Untuk semua ahli keluarga, dari yang kecil hingga yang besar.',
+      artNote: 'Kenangan paling indah, kita cipta bersama.', destination: 'DESTINASI', travelDates: 'TARIKH PERJALANAN',
+      tripStatus: 'STATUS PERJALANAN', planning: 'Dalam perancangan', overviewEyebrow: '01 / PERJALANAN KITA',
+      overviewTitle: 'Semua yang perlu tahu.', overviewDescription: ['Semak di sini sebelum bertolak.', 'Maklumat disahkan akan dikemas kini.'],
+      notice: 'Perjalanan ini masih dalam perancangan. Destinasi, tarikh dan tempahan belum disahkan.', draft: 'DRAF',
+      destinationTitle: 'Ke mana kita?', transportTitle: 'Perjalanan & pengangkutan', stayTitle: 'Tempat menginap',
+      itineraryEyebrow: '02 / MASA BERSAMA', itineraryTitle: 'Ruang untuk kenangan.',
+      itineraryDescription: ['Rancangan perjalanan keluarga.', 'Masa untuk berkumpul, berehat dan beraya.'],
+      emptyTitle: 'Atur cara sedang dirancang', emptyDescription: 'Jadual perjalanan akan dipaparkan di sini setelah tarikh dan aktiviti disahkan. Semak semula untuk perkembangan terkini.',
+      essentialsEyebrow: '03 / SEBELUM BERTOLAK', essentialsTitle: ['Dah sedia', 'untuk beraya?'],
+      essentialsDescription: 'Sedikit persediaan, perjalanan lebih tenang. Tandakan senarai anda apabila sudah siap.',
+      yourProgress: 'Persediaan anda', localNote: 'Senarai ini disimpan pada peranti ini sahaja.',
+      storageUnavailable: 'Storan peranti tidak tersedia. Senarai ini hanya kekal semasa halaman ini dibuka.',
+      shareEyebrow: 'SIMPAN & KONGSI', shareTitle: 'Satu pautan untuk seisi keluarga.',
+      shareDescription: 'Simpan portal ini untuk rujukan sepanjang perjalanan.', copyLink: 'Salin pautan', print: 'Cetak ringkasan',
+      copied: 'Pautan disalin. Sedia dikongsi dengan keluarga!', copyFallback: 'Salin pautan dalam kotak di bawah.',
+      footer: 'Dirancang dengan kasih, untuk keluarga kita.', pending: 'Akan disahkan',
+      packing: [
+        ['documents', 'Dokumen perjalanan', 'Kad pengenalan, pasport jika perlu dan tiket.'],
+        ['raya', 'Baju Raya & pakaian', 'Baju Raya, pakaian selesa dan kelengkapan solat.'],
+        ['medicine', 'Ubat & keperluan kesihatan', 'Ubat peribadi dan kit pertolongan cemas.'],
+        ['devices', 'Telefon & pengecas', 'Pengecas, power bank dan penyesuai jika perlu.'],
+        ['children', 'Keperluan anak-anak', 'Makanan ringan, pakaian tambahan dan barang keselesaan.'],
+        ['home', 'Rumah & perjalanan', 'Kunci rumah dan semak pengangkutan sebelum bertolak.']
+      ]
+    },
+    en: {
+      navOverview: 'Overview', navItinerary: 'Itinerary', navEssentials: 'Get ready',
+      heroEyebrow: 'ONE FAMILY, ONE JOURNEY', heroTitle: ['Together again.', 'A Raya to remember.'],
+      heroDescription: 'Near or far, we come together. Your home for all our family’s Raya 2027 travel information.',
+      viewTrip: 'Explore the trip', heroFootnote: 'For every member of the family, little ones and grown-ups alike.',
+      artNote: 'The best memories are the ones we make together.', destination: 'DESTINATION', travelDates: 'TRAVEL DATES',
+      tripStatus: 'TRIP STATUS', planning: 'Planning in progress', overviewEyebrow: '01 / OUR JOURNEY',
+      overviewTitle: 'Everything you need to know.', overviewDescription: ['Check here before you set off.', 'Confirmed details will be added as we plan.'],
+      notice: 'Our trip is still being planned. The destination, dates and bookings are not yet confirmed.', draft: 'DRAFT',
+      destinationTitle: 'Where are we going?', transportTitle: 'Travel & transport', stayTitle: 'Where we’re staying',
+      itineraryEyebrow: '02 / TIME TOGETHER', itineraryTitle: 'Make room for memories.',
+      itineraryDescription: ['Our family travel plans.', 'Time to gather, unwind and celebrate.'],
+      emptyTitle: 'Our itinerary is taking shape', emptyDescription: 'The itinerary will appear here once dates and activities are confirmed. Check back for the latest updates.',
+      essentialsEyebrow: '03 / BEFORE YOU GO', essentialsTitle: ['A little prep.', 'A happier Raya.'],
+      essentialsDescription: 'A little preparation makes for a smoother journey. Tick off your essentials as you get ready.',
+      yourProgress: 'Your preparations', localNote: 'This checklist is saved on this device only.',
+      storageUnavailable: 'Device storage is unavailable. Your checklist lasts only while this page is open.',
+      shareEyebrow: 'SAVE & SHARE', shareTitle: 'One link for the whole family.',
+      shareDescription: 'Keep this portal handy throughout our journey.', copyLink: 'Copy portal link', print: 'Print summary',
+      copied: 'Link copied. Ready to share with the family!', copyFallback: 'Copy the link from the box below.',
+      footer: 'Planned with love, for our family.', pending: 'To be confirmed',
+      packing: [
+        ['documents', 'Travel documents', 'Identification, passports if needed and tickets.'],
+        ['raya', 'Raya outfits & clothes', 'Baju Raya, comfortable clothes and prayer essentials.'],
+        ['medicine', 'Medication & health essentials', 'Personal medication and a small first-aid kit.'],
+        ['devices', 'Phone & chargers', 'Chargers, a power bank and adapters if needed.'],
+        ['children', 'Little ones’ essentials', 'Snacks, extra clothes and familiar comforts.'],
+        ['home', 'Home & travel checks', 'Lock up and check your transport before setting off.']
+      ]
+    }
+  };
+  const trip = window.RAYA_TRIP || {};
+  const storageKey = 'raya-2027-preparations-v1';
+  let language = 'ms';
+  let checked = new Set();
+  let storageAvailable = true;
+  try {
+    language = localStorage.getItem('raya-2027-language') === 'en' ? 'en' : 'ms';
+    const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    if (Array.isArray(saved)) checked = new Set(saved.filter(id => translations.ms.packing.some(item => item[0] === id)));
+  } catch { storageAvailable = false; }
+
+  const byId = id => document.getElementById(id);
+  const value = entry => typeof entry === 'string' ? entry : (entry?.[language] || entry?.ms || entry?.en || translations[language].pending);
+  function updateProgress() {
+    byId('progress-text').textContent = `${checked.size} / ${translations[language].packing.length}`;
+    byId('packing-progress').max = translations[language].packing.length;
+    byId('packing-progress').value = checked.size;
+    byId('packing-progress').setAttribute('aria-label', translations[language].yourProgress);
+    byId('storage-note').textContent = translations[language][storageAvailable ? 'localNote' : 'storageUnavailable'];
+  }
+  function render() {
+    const t = translations[language];
+    document.documentElement.lang = language;
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+      const text = t[element.dataset.i18n];
+      element.replaceChildren();
+      (Array.isArray(text) ? text : [text]).forEach((line, index) => {
+        if (index) element.append(document.createElement('br'));
+        element.append(document.createTextNode(line));
+      });
+    });
+    byId('language').textContent = language === 'ms' ? 'EN ↗' : 'BM ↗';
+    byId('language').setAttribute('aria-label', language === 'ms' ? 'Switch to English' : 'Tukar ke Bahasa Melayu');
+    document.title = language === 'ms' ? 'Raya 2027 · Keluarga Johari' : 'Raya 2027 · The Johari Family';
+    for (const [id, field] of Object.entries({ 'summary-destination': 'destination', 'summary-dates': 'dates', 'destination-value': 'destination', 'transport-value': 'transport', 'stay-value': 'stay', 'destination-note': 'destinationNote', 'transport-note': 'transportNote', 'stay-note': 'stayNote' })) {
+      byId(id).textContent = value(trip[field]);
+    }
+    const itinerary = byId('itinerary-items');
+    itinerary.replaceChildren();
+    if (Array.isArray(trip.itinerary) && trip.itinerary.length) {
+      trip.itinerary.forEach(item => {
+        const row = document.createElement('article');
+        row.className = 'itinerary-row';
+        const time = document.createElement('span');
+        time.className = 'itinerary-time';
+        time.textContent = value(item.time);
+        const content = document.createElement('div');
+        const title = document.createElement('h3');
+        title.textContent = value(item.title);
+        const description = document.createElement('p');
+        description.textContent = value(item.description);
+        content.append(title, description);
+        row.append(time, content);
+        itinerary.append(row);
+      });
+    } else {
+      const empty = document.createElement('div');
+      empty.className = 'itinerary-empty';
+      const icon = document.createElement('span');
+      icon.className = 'itinerary-icon';
+      icon.setAttribute('aria-hidden', 'true');
+      icon.textContent = '✳';
+      const content = document.createElement('div');
+      const title = document.createElement('h3');
+      title.textContent = t.emptyTitle;
+      const description = document.createElement('p');
+      description.textContent = t.emptyDescription;
+      content.append(title, description);
+      const badge = document.createElement('span');
+      badge.className = 'badge';
+      badge.textContent = t.draft;
+      empty.append(icon, content, badge);
+      itinerary.append(empty);
+    }
+    const checklist = byId('checklist');
+    checklist.replaceChildren();
+    t.packing.forEach(([id, title, description]) => {
+      const label = document.createElement('label');
+      const input = document.createElement('input');
+      input.type = 'checkbox';
+      input.checked = checked.has(id);
+      input.addEventListener('change', () => {
+        if (input.checked) checked.add(id); else checked.delete(id);
+        try { localStorage.setItem(storageKey, JSON.stringify([...checked])); }
+        catch { storageAvailable = false; }
+        updateProgress();
+      });
+      const text = document.createElement('span');
+      const strong = document.createElement('strong');
+      strong.textContent = title;
+      const small = document.createElement('small');
+      small.textContent = description;
+      text.append(strong, small);
+      label.append(input, text);
+      checklist.append(label);
+    });
+    byId('share-status').textContent = '';
+    byId('share-fallback').hidden = true;
+    updateProgress();
+  }
+  byId('language').addEventListener('click', () => {
+    language = language === 'ms' ? 'en' : 'ms';
+    try { localStorage.setItem('raya-2027-language', language); } catch { /* Language switching still works without storage. */ }
+    render();
+  });
+  byId('share').addEventListener('click', async () => {
+    const link = new URL(window.location.href);
+    link.hash = '';
+    link.search = '';
+    try {
+      await navigator.clipboard.writeText(link.href);
+      byId('share-status').textContent = translations[language].copied;
+    } catch {
+      const field = byId('share-fallback');
+      field.value = link.href;
+      field.hidden = false;
+      field.focus();
+      field.select();
+      byId('share-status').textContent = translations[language].copyFallback;
+    }
+  });
+  byId('print').addEventListener('click', () => window.print());
+  render();
+})();
