@@ -2,11 +2,14 @@
 // Each display value supports both Bahasa Melayu (ms) and English (en).
 // Leave unknown fields null: the portal will show "To be confirmed".
 window.RAYA_TRIP = {
-  destination: null,
-  dates: null,
+  destination: { ms: 'Ipoh, Perak', en: 'Ipoh, Perak' },
+  dates: {
+    ms: 'Tarikh akan disahkan (TBC)\nPilihan 1: 10–12 Mac 2027, Rabu–Jumaat.\nPilihan 2: 11–13 Mac 2027, Khamis–Sabtu.',
+    en: 'Dates to be confirmed (TBC)\nOption 1: 10–12 March 2027, Wednesday–Friday.\nOption 2: 11–13 March 2027, Thursday–Saturday.'
+  },
   transport: null,
   stay: null,
-  destinationNote: { ms: 'Destinasi dan tempat berkumpul akan dikongsi setelah disahkan.', en: 'The destination and meeting point will be shared once confirmed.' },
+  destinationNote: { ms: 'Kita akan ke Ipoh, Perak. Tempat berkumpul akan dikongsi setelah disahkan.', en: 'We are heading to Ipoh, Perak. The meeting point will be shared once confirmed.' },
   transportNote: { ms: 'Maklumat perjalanan, waktu bertolak dan pengangkutan akan dikemas kini.', en: 'Travel arrangements, departure times and transport will be added here.' },
   stayNote: { ms: 'Tempat penginapan dan maklumat daftar masuk akan dikemas kini.', en: 'Accommodation and check-in information will be added here.' },
   // Add confirmed itinerary entries, for example:
