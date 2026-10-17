@@ -9,6 +9,11 @@
       optionOne: 'PILIHAN 1', optionTwo: 'PILIHAN 2', countdownUnits: ['hari', 'jam', 'minit', 'saat'],
       countdownReached: 'Tarikh mula pilihan ini telah tiba.',
       countdownNote: 'Kiraan ke 00:00 waktu Malaysia pada hari pertama setiap pilihan. Tarikh dan waktu bertolak masih akan disahkan.',
+      accommodationEyebrow: 'CADANGAN PENGINAPAN', accommodationTitle: 'Pilihan tempat menginap.',
+      accommodationNote: 'Cadangan sahaja. Harga, ketersediaan dan tempahan belum disahkan.',
+      accommodationCaption: 'Penginapan yang dicadangkan untuk perjalanan keluarga',
+      accommodationType: 'Jenis', accommodationName: 'Nama', accommodationDescription: 'Penerangan ringkas', accommodationLink: 'Pautan',
+      villaDescription: 'Vila dengan kolam renang peribadi. Semak penyenaraian untuk maklumat bilik dan ketersediaan.', viewBooking: 'Lihat di Booking.com',
       navOverview: 'Ringkasan', navItinerary: 'Atur cara', navEssentials: 'Persediaan',
       heroEyebrow: 'SATU KELUARGA, SATU PERJALANAN', heroTitle: ['Balik bersama.', 'Aidilfitri bermakna.'],
       heroDescription: 'Jauh dekat, kita tetap bersama. Semua maklumat perjalanan Aidilfitri 2027 keluarga kita, dalam satu tempat.',
@@ -46,6 +51,11 @@
       optionOne: 'OPTION 1', optionTwo: 'OPTION 2', countdownUnits: ['days', 'hours', 'minutes', 'seconds'],
       countdownReached: 'This option’s start date has arrived.',
       countdownNote: 'Counting down to 00:00 Malaysia time on the first day of each option. Travel dates and departure times are still to be confirmed.',
+      accommodationEyebrow: 'PROPOSED ACCOMMODATION', accommodationTitle: 'Places we could stay.',
+      accommodationNote: 'Proposal only. Prices, availability and bookings are not confirmed.',
+      accommodationCaption: 'Proposed accommodation for our family trip',
+      accommodationType: 'Type', accommodationName: 'Name', accommodationDescription: 'Short description', accommodationLink: 'Link',
+      villaDescription: 'A villa with a private pool. Check the listing for room details and availability.', viewBooking: 'View on Booking.com',
       navOverview: 'Overview', navItinerary: 'Itinerary', navEssentials: 'Get ready',
       heroEyebrow: 'ONE FAMILY, ONE JOURNEY', heroTitle: ['Together again.', 'An Aidilfitri to remember.'],
       heroDescription: 'Near or far, we come together. Your home for all our family’s Aidilfitri 2027 travel information.',
@@ -131,7 +141,9 @@
     const t = translations[language];
     document.documentElement.lang = language;
     document.querySelectorAll('[data-i18n]').forEach(element => {
-      const text = t[element.dataset.i18n];
+      const text = t[element.dataset.i18n] ?? translations.ms[element.dataset.i18n];
+      // Preserve the HTML fallback when newer content has no translation yet.
+      if (typeof text !== 'string' && !Array.isArray(text)) return;
       element.replaceChildren();
       (Array.isArray(text) ? text : [text]).forEach((line, index) => {
         if (index) element.append(document.createElement('br'));
