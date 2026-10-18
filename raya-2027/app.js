@@ -2,6 +2,8 @@
 (() => {
   const translations = {
     ms: {
+      surveyEyebrow: 'SUARA KELUARGA', surveyTitle: 'Tinjauan keluarga',
+      surveyDescription: 'Lengkapkan tinjauan untuk membantu merancang perjalanan Aidilfitri 2027 kita.', surveyButton: 'Isi tinjauan',
       meetingEyebrow: 'JOM BERBINCANG', meetingTitle: 'Mesyuarat keluarga',
       addToCalendar: 'Tambah ke kalendar (.ics)',
       nextMeeting: 'Mesyuarat seterusnya', meetingDate: 'Sabtu, 24 Oktober 2026 · 9:00–11:00 pagi (waktu Malaysia)',
@@ -45,6 +47,8 @@
       ]
     },
     en: {
+      surveyEyebrow: 'HAVE YOUR SAY', surveyTitle: 'Family survey',
+      surveyDescription: 'Complete the survey to help plan our Aidilfitri 2027 trip.', surveyButton: 'Complete the survey',
       meetingEyebrow: 'LET’S PLAN TOGETHER', meetingTitle: 'Family meeting',
       addToCalendar: 'Add to calendar (.ics)',
       nextMeeting: 'Next meeting', meetingDate: 'Saturday, 24 October 2026 · 9:00–11:00 AM (Malaysia time)',
