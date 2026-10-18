@@ -1,15 +1,15 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Keluarga Johari//Aidilfitri 2027//EN
+PRODID:-//Keluarga SarahJoe//Aidilfitri 2027//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:family-meeting-20261024@azadjohari.github.io
-DTSTAMP:20261017T113731Z
+DTSTAMP:20261018T161134Z
 DTSTART:20261024T010000Z
 DTEND:20261024T030000Z
-SEQUENCE:1
-SUMMARY:Mesyuarat Keluarga Johari / Family meeting
+SEQUENCE:2
+SUMMARY:Mesyuarat Keluarga SarahJoe / Family meeting
 DESCRIPTION:Discuss our Aidilfitri 2027 plans.\n
  Google Meet: https://meet.google.com/uon-ugfk-wft
 LOCATION:Google Meet

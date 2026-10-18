@@ -158,7 +158,7 @@
     });
     byId('language').textContent = language === 'ms' ? 'EN ↗' : 'BM ↗';
     byId('language').setAttribute('aria-label', language === 'ms' ? 'Switch to English' : 'Tukar ke Bahasa Melayu');
-    document.title = 'Aidilfitri 2027 · Keluarga Johari';
+    document.title = 'Aidilfitri 2027 · Keluarga SarahJoe';
     for (const [id, field] of Object.entries({ 'summary-destination': 'destination', 'summary-dates': 'dates', 'destination-value': 'destination', 'transport-value': 'transport', 'stay-value': 'stay', 'destination-note': 'destinationNote', 'transport-note': 'transportNote', 'stay-note': 'stayNote' })) {
       byId(id).textContent = value(trip[field]);
     }
